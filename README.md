@@ -13,15 +13,25 @@ step and no dependencies.
 - Pressing an operator after a result continues the calculation from that result
 - Invalid expressions show `Error` instead of throwing
 
-The result is computed with JavaScript's `eval` on the typed expression, which
-is fine for a local toy but is not how you would evaluate untrusted input.
+The result is computed by a small shunting-yard evaluator (`evaluator.js`), not
+`eval`, so only numbers, `+ - * / %` and parentheses are ever interpreted.
+Pressing `=` on an empty expression does nothing.
 
 ## Files
 
 ```
 index.html   button grid and display
 style.css    layout and styling (blurred wallpaper background)
-script.js    input handling and evaluation
+wallpaper.jpg  background image (1920x1200, ~135 KB)
+script.js    input handling
+evaluator.js safe expression evaluator (shunting-yard)
+evaluator.test.js  tests, run with `node --test`
+```
+
+## Tests
+
+```
+node --test
 ```
 
 ## Running
