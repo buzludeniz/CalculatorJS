@@ -37,8 +37,10 @@ function tapOperator(operatorValue){
 }
 
 function tapResult(){
+    if(calculateValue == '') return;
+
     try{
-        resultScreen.textContent = eval(calculateValue)
+        resultScreen.textContent = evaluate(calculateValue)
     }
     catch(e){
         resultScreen.textContent = 'Error'
